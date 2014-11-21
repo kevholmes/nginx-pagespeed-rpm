@@ -2,7 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
-%define nps_version 1.8.31.4
+%define nps_version 1.9.32.2
 
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -46,23 +46,23 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: nginx
-Version: 1.6.0
+Version: 1.6.2
 Release: 1%{?dist}.ctlt
 Vendor: nginx inc.
 URL: http://nginx.org/
 
 Source0: http://nginx.org/download/%{name}-%{version}.tar.gz
-Source1: logrotate
-Source2: nginx.init
-Source3: nginx.sysconf
-Source4: nginx.conf
-Source5: nginx.vh.default.conf
-Source6: nginx.vh.example_ssl.conf
-Source7: nginx.suse.init
-Source8: nginx.service
-Source9: nginx.upgrade.sh
-Source10: release-%{nps_version}-beta.zip
-Source11: %{nps_version}.tar.gz
+Source1: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/logrotate
+Source2: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.init 
+Source3: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.sysconf 
+Source4: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.conf 
+Source5: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.vh.default.conf
+Source6: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.vh.example_ssl.conf 
+Source7: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.suse.init
+Source8: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.service 
+Source9: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.upgrade.sh 
+Source10: https://github.com/pagespeed/ngx_pagespeed/archive/release-%{nps_version}-beta.zip
+Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}.tar.gz
 
 License: 2-clause BSD-like license
 
