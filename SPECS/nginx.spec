@@ -52,16 +52,16 @@ Vendor: nginx inc.
 URL: http://nginx.org/
 
 Source0: http://nginx.org/download/%{name}-%{version}.tar.gz
-Source1: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/logrotate
-Source2: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.init 
-Source3: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.sysconf 
-Source4: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.conf 
-Source5: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.vh.default.conf
-Source6: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.vh.example_ssl.conf 
-Source7: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.suse.init
-Source8: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.service 
-Source9: https://github.com/kevholmes/nginx-pagespeed-rpm/blob/master/SOURCES/nginx.upgrade.sh 
-Source10: https://github.com/pagespeed/ngx_pagespeed/archive/release-%{nps_version}-beta.zip
+Source1: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/logrotate
+Source2: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.init 
+Source3: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.sysconf 
+Source4: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.conf 
+Source5: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.vh.default.conf
+Source6: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.vh.example_ssl.conf 
+Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
+Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
+Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
+Source10: https://raw.githubusercontent.com/pagespeed/ngx_pagespeed/archive/release-%{nps_version}-beta.zip
 Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}.tar.gz
 
 License: 2-clause BSD-like license
