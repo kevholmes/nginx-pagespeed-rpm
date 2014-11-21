@@ -3,7 +3,7 @@
 %define nginx_user nginx
 %define nginx_group nginx
 %define nps_version 1.9.32.2
-
+%define debug_package %{nil}
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
@@ -47,7 +47,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: nginx
 Version: 1.6.2
-Release: 1%{?dist}.ctlt
+Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 
@@ -61,7 +61,7 @@ Source6: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/
 Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
 Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
-Source10: https://raw.githubusercontent.com/pagespeed/ngx_pagespeed/archive/release-%{nps_version}-beta.zip
+Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-beta.zip
 Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}.tar.gz
 
 License: 2-clause BSD-like license
@@ -90,7 +90,7 @@ cd %{_builddir}/%{name}-%{version}
 if [ $? -ne 0 ]; then
   exit $?
 fi
-cd ngx_pagespeed-release-%{nps_version}-beta
+cd ngx_pagespeed-%{nps_version}-beta
 %{__tar} xzf %{SOURCE11}
 if [ $? -ne 0 ]; then
   exit $?
@@ -133,7 +133,7 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-debug \
         %{?with_spdy:--with-http_spdy_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-release-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/%{name}-%{version}/objs/nginx \
@@ -172,7 +172,7 @@ make %{?_smp_mflags}
         --with-ipv6 \
         %{?with_spdy:--with-http_spdy_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-release-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
 
