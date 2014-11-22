@@ -5,6 +5,7 @@ Building the RPM
 ----------------
 
 spectool -R -g nginx.spec
+
 rpmbuild -ba nginx.spec
 
 Updating to Newer Version of Nginx or Pagespeed
