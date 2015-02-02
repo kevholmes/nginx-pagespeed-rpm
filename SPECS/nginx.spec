@@ -56,8 +56,6 @@ Source1: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/
 Source2: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.init 
 Source3: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.sysconf 
 Source4: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.conf 
-Source5: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.vh.default.conf
-Source6: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.vh.example_ssl.conf 
 Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
 Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
@@ -194,10 +192,6 @@ make %{?_smp_mflags}
 %{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
 %{__install} -m 644 -p %{SOURCE4} \
    $RPM_BUILD_ROOT%{_sysconfdir}/nginx/nginx.conf
-%{__install} -m 644 -p %{SOURCE5} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/default.conf
-%{__install} -m 644 -p %{SOURCE6} \
-   $RPM_BUILD_ROOT%{_sysconfdir}/nginx/conf.d/example_ssl.conf
 
 %{__mkdir} -p $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig
 %{__install} -m 644 -p %{SOURCE3} \
