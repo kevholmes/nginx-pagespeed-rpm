@@ -236,8 +236,8 @@ make %{?_smp_mflags}
 %dir %{_sysconfdir}/nginx/conf.d
 
 %config(noreplace) %{_sysconfdir}/nginx/nginx.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
-%config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
+#%config(noreplace) %{_sysconfdir}/nginx/conf.d/default.conf
+#%config(noreplace) %{_sysconfdir}/nginx/conf.d/example_ssl.conf
 %config(noreplace) %{_sysconfdir}/nginx/mime.types
 %config(noreplace) %{_sysconfdir}/nginx/fastcgi_params
 %config(noreplace) %{_sysconfdir}/nginx/scgi_params
