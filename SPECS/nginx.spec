@@ -2,7 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
-%define nps_version 1.9.32.4
+%define nps_version 1.9.32.6
 %define debug_package %{nil}
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -47,7 +47,7 @@ Requires(pre): pwdutils
 Summary: High performance web server
 Name: nginx
 Version: 1.8.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
 
