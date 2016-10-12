@@ -23,7 +23,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
-%define with_spdy 1
+%define with_httpv2 1
 %endif
 
 %if 0%{?rhel}  == 7
@@ -33,7 +33,7 @@ Requires: systemd
 Requires: openssl >= 1.0.1
 BuildRequires: systemd
 BuildRequires: openssl-devel >= 1.0.1
-%define with_spdy 1
+%define with_httpv2 1
 %endif
 
 %if 0%{?suse_version}
@@ -129,7 +129,7 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-file-aio \
         --with-ipv6 \
         --with-debug \
-        %{?with_spdy:--with-http_spdy_module} \
+        %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
@@ -168,7 +168,7 @@ make %{?_smp_mflags}
         --with-mail_ssl_module \
         --with-file-aio \
         --with-ipv6 \
-        %{?with_spdy:--with-http_spdy_module} \
+        %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
