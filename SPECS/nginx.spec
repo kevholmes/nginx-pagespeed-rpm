@@ -14,6 +14,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl
 BuildRequires: openssl-devel
+BuildRequires: devtoolset-2-gcc >= 4.8.0
 %endif
 
 %if 0%{?rhel}  == 6
@@ -23,6 +24,7 @@ Requires: initscripts >= 8.36
 Requires(post): chkconfig
 Requires: openssl >= 1.0.1
 BuildRequires: openssl-devel >= 1.0.1
+BuildRequires: devtoolset-2-gcc >= 4.8.0
 %define with_httpv2 1
 %endif
 
