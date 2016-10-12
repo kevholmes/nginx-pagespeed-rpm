@@ -133,6 +133,7 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-debug \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
+	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
@@ -172,6 +173,7 @@ make %{?_smp_mflags}
         --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
+	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
