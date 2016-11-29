@@ -48,7 +48,7 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: nginx
-Version: 1.10.1
+Version: 1.10.2
 Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
