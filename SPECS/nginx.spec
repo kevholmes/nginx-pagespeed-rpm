@@ -7,27 +7,6 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
 
-%if 0%{?rhel}  == 5
-Group: System Environment/Daemons
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-Requires: openssl
-BuildRequires: openssl-devel
-BuildRequires: devtoolset-2-gcc >= 4.8.0
-%endif
-
-%if 0%{?rhel}  == 6
-Group: System Environment/Daemons
-Requires(pre): shadow-utils
-Requires: initscripts >= 8.36
-Requires(post): chkconfig
-Requires: openssl >= 1.0.1
-BuildRequires: openssl-devel >= 1.0.1
-BuildRequires: devtoolset-2-gcc >= 4.8.0
-%define with_httpv2 1
-%endif
-
 %if 0%{?rhel}  == 7
 Group: System Environment/Daemons
 Requires(pre): shadow-utils
@@ -133,7 +112,6 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-debug \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
@@ -173,7 +151,6 @@ make %{?_smp_mflags}
         --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
         $*
 make %{?_smp_mflags}
