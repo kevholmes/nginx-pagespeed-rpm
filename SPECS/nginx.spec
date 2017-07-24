@@ -108,7 +108,6 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         --with-debug \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -148,7 +147,6 @@ make %{?_smp_mflags}
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
