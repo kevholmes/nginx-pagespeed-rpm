@@ -129,7 +129,6 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         --with-debug \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
@@ -170,7 +169,6 @@ make %{?_smp_mflags}
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
