@@ -40,8 +40,8 @@ Source4: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/
 Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
 Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
-Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-beta.zip
-Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}.tar.gz
+Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-stable.zip
+Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}-x64.tar.gz
 
 License: 2-clause BSD-like license
 
@@ -69,7 +69,7 @@ cd %{_builddir}/%{name}-%{version}
 if [ $? -ne 0 ]; then
   exit $?
 fi
-cd ngx_pagespeed-%{nps_version}-beta
+cd ngx_pagespeed-%{nps_version}-stable
 %{__tar} xzf %{SOURCE11}
 if [ $? -ne 0 ]; then
   exit $?
@@ -112,7 +112,7 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-debug \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/%{name}-%{version}/objs/nginx \
@@ -151,7 +151,7 @@ make %{?_smp_mflags}
         --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 
