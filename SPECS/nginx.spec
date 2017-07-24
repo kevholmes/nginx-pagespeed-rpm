@@ -61,8 +61,8 @@ Source4: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/
 Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
 Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
-Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-beta.zip
-Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}.tar.gz
+Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-stable.zip
+Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}-x64.tar.gz
 
 License: 2-clause BSD-like license
 
