@@ -90,7 +90,7 @@ cd %{_builddir}/%{name}-%{version}
 if [ $? -ne 0 ]; then
   exit $?
 fi
-cd ngx_pagespeed-%{nps_version}-beta
+cd ngx_pagespeed-%{nps_version}-stable
 %{__tar} xzf %{SOURCE11}
 if [ $? -ne 0 ]; then
   exit $?
@@ -134,7 +134,7 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/%{name}-%{version}/objs/nginx \
@@ -174,7 +174,7 @@ make %{?_smp_mflags}
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
 	--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-beta \
+	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 
