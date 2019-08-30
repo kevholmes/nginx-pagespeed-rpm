@@ -2,7 +2,7 @@
 %define nginx_home %{_localstatedir}/cache/nginx
 %define nginx_user nginx
 %define nginx_group nginx
-%define nps_version 1.12.34.2 
+%define nps_version 1.13.35.2
 %define debug_package %{nil}
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7)
@@ -27,7 +27,7 @@ Requires(pre): pwdutils
 
 Summary: High performance web server
 Name: nginx
-Version: 1.10.3 
+Version: 1.16.1
 Release: 1%{?dist}
 Vendor: nginx inc.
 URL: http://nginx.org/
@@ -40,7 +40,7 @@ Source4: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/
 Source7: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.suse.init
 Source8: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.service 
 Source9: https://raw.githubusercontent.com/kevholmes/nginx-pagespeed-rpm/master/SOURCES/nginx.upgrade.sh 
-Source10: https://github.com/pagespeed/ngx_pagespeed/archive/v%{nps_version}-stable.zip
+Source10: https://github.com/apache/incubator-pagespeed-ngx/archive/v%{nps_version}-stable.zip
 Source11: https://dl.google.com/dl/page-speed/psol/%{nps_version}-x64.tar.gz
 
 License: 2-clause BSD-like license
@@ -69,7 +69,7 @@ cd %{_builddir}/%{name}-%{version}
 if [ $? -ne 0 ]; then
   exit $?
 fi
-cd ngx_pagespeed-%{nps_version}-stable
+cd incubator-pagespeed-ngx-%{nps_version}-stable
 %{__tar} xzf %{SOURCE11}
 if [ $? -ne 0 ]; then
   exit $?
@@ -108,10 +108,10 @@ chmod -Rf a+rX,u+w,g-w,o-w .
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
-        --with-debug \
+        --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
+	--add-module=%{_builddir}/%{name}-%{version}/incubator-pagespeed-ngx-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 %{__mv} %{_builddir}/%{name}-%{version}/objs/nginx \
@@ -147,9 +147,10 @@ make %{?_smp_mflags}
         --with-mail \
         --with-mail_ssl_module \
         --with-file-aio \
+        --with-ipv6 \
         %{?with_httpv2:--with-http_v2_module} \
         --with-cc-opt="%{optflags} $(pcre-config --cflags)" \
-	--add-module=%{_builddir}/%{name}-%{version}/ngx_pagespeed-%{nps_version}-stable \
+	--add-module=%{_builddir}/%{name}-%{version}/incubator-pagespeed-ngx-%{nps_version}-stable \
         $*
 make %{?_smp_mflags}
 
